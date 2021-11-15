@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex; /*Coloca los apartados de lado del titulo de nuestra pag*/
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #20B2AA;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Logo{
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.apartados{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+.apartados li{
+    list-style: none;/*para quitar los puntos del texto de los apartados*/
+}
+
+.apartados a{
+    color: rgb(226, 226, 226);
+    text-decoration: none; /*Quitamos lo subrayado*/
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+/*la clase burger la utilizo para el menu en version movil.*/
+.burger{
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    width: 25px;
+    height: 3px;
+    color: rgb(226, 226, 226);
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .apartados{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
+    .apartados{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #20B2AA;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        transform: translateX(100%);/*para la transicion del menu*/
+        transition: transform 0.5s ease-in;
+    }
+    .apartados li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+}
+.apartados-act{
+    transform: translateX(0%)
+}
+@keyframes apartadosfade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+/*Animacion para las lineas del burger*/
+.toggle .linea1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .linea2{
+    opacity: 0;
+}
+.toggle .linea3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
