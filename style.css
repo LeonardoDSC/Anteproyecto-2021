@@ -6,7 +6,7 @@
 
 nav{
     display: flex; /*Coloca los apartados de lado del titulo de nuestra pag*/
-    justify-content: space-around;
+    justify-content: space-around;/* Distribuir items uniformemente.  Los items tienen el mismo espacio a su alrededor */
     align-items: center;
     min-height: 8vh;
     background-color: rgb(189, 178, 255);
@@ -17,8 +17,8 @@ nav{
 
 .Logo{
     color: rgb(241, 250, 238);
-    text-transform: uppercase;
-    letter-spacing: 5px;
+    text-transform: uppercase;/*transforma el texto a mayusculas*/
+    letter-spacing: 5px;/*espacio entre letras*/
     font-size: 20px;
 }
 
@@ -39,6 +39,8 @@ nav{
     font-weight: bold;
 }
 
+/* los pseudo-elementos se representan por : o :: y permiten añadir estilos a una parte concreta del documento, en este caso la accion hover sobre los
+Ul Li y a del nav. */
 nav ul li a:hover{
     color: rgb(255, 214, 165);
 }
@@ -54,62 +56,12 @@ nav ul li a:hover{
     color: rgb(241, 250, 238);
     background-color: rgb(241, 250, 238);
     margin: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /*Define el tiempo de transicion del elemento.*/
 }
 
-@media screen and (max-width: 1024px) {
-    .apartados{
-        width: 60%;
-    }
-}
-@media screen and (max-width: 768px) {
-    head{
-        overflow-x: hidden;
-    }
-    .apartados{
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: rgb(189, 178, 255);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 40%;
-        transform: translateX(100%);/*para la transicion del menu*/
-        transition: transform 0.5s ease-in;
-    }
-    .apartados li{
-        opacity: 0;
-    }
-    .burger{
-        display: block;
-    }
 
-    .row{
-        flex-direction: column-reverse;
-        margin: 50px 0;
-
-    }
-    .col-2{
-        flex-basis: 100%;
-        margin-bottom: 50px;
-    }
-}
-.apartados-act{
-    transform: translateX(0%)
-}
-@keyframes apartadosfade{
-    from{
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to{
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-/*Animacion para las lineas del burger*/
+/*Animacion para las lineas del burger
+Pasan de ser 3 lineas horizontales a formar una X */
 .toggle .linea1{
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -127,8 +79,8 @@ nav ul li a:hover{
     margin: 100px 0;
 }
 .col-1{
-    flex-basis: 40%;
-    position: static;
+    flex-basis: 40%; /*especifica el tamaño unicial del elemento flexible*/
+    position: static; /* para que no afecte a los elementos del nav*/
     margin-left: 45px;
     font-family: 'Roboto Slab', serif;
 
@@ -160,9 +112,12 @@ button img{
     display: none;
 
 }
+/*hacemos que cuando pongamos el cursos encima del boton aparezca la imagen colocada*/
+
 button:hover img{
 display: block;
 }
+
 button:hover{
     width: 160px;
     display: flex;
@@ -189,8 +144,68 @@ button:hover{
 
 
 }
+
 .col-2 .local{
     width: 90%;
     border-radius: 3%;/*redondeamos los bordes de la imagen */
      
+}
+
+@media screen and (max-width: 1024px) {
+    .apartados{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 768px) {
+    head{
+        overflow-x: hidden; /*se calcula implicitamente como auto*/
+    }
+
+    .apartados{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgb(189, 178, 255);
+        display: flex;
+        flex-direction: column;/*especifica cómo colocar los objetos flexibles en el contenedor flexible definiendo el eje principal y la dirección*/
+        align-items: center;
+        width: 40%;
+        transform: translateX(100%);/*para la transicion del menu los reposiciona horizontalmente*/
+        transition: transform 0.5s ease-in;
+    }
+    .apartados li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+
+    .row{
+        flex-direction: column-reverse;
+        margin: 50px 0;
+
+    }
+    .col-2{
+        flex-basis: 100%;
+        margin-bottom: 50px;
+    }
+}
+.apartados-act{
+    transform: translateX(0%)
+}
+
+/*La regla arroba @keyframes permite a los autores controlar los pasos intermedios en una secuencia de animación CSS 
+mediante el establecimiento de keyframes (o puntos de trayectoria) a lo largo de la secuencia de animación que debe ser alcanzado por determinados puntos
+durante la animación. Esto le da un control más específico sobre los pasos intermedios de la secuencia de animación que se obtiene al dejar que el navegador
+maneje todo automáticamente.*/
+@keyframes apartadosfade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
