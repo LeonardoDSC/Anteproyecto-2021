@@ -94,7 +94,7 @@ Pasan de ser 3 lineas horizontales a formar una X */
     justify-content: center;
     margin-left: 5px;
     align-items: center;
-    font-size: 15px;
+    font-size: 18px;
 
 }
 button{
@@ -125,6 +125,7 @@ button:hover{
     justify-content: space-between;
 }
 /*columna a la izquierda del texto con efecto gradient*/
+/*
 .col-1::after{
     content: '';
     width: 10px;
@@ -134,6 +135,7 @@ button:hover{
     left: -40px;
     top: 8px;
 }
+*/
 .col-2{
     position: static;
     flex-basis: 40%;
@@ -144,11 +146,55 @@ button:hover{
 
 
 }
-
 .col-2 .local{
     width: 90%;
-    border-radius: 3%;/*redondeamos los bordes de la imagen */
+    border-radius: 3%; 
      
+}
+
+
+.row2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
+}
+.Products{
+    flex-basis: 40%; /*especifica el tamaño unicial del elemento flexible*/
+    position: static; /* para que no afecte a los elementos del nav*/
+    margin-left: 45px;
+    font-family: 'Roboto Slab', serif;
+
+}
+.Products h3{
+    font-size: 35px;
+    color: black;
+
+}
+.Products p{
+    justify-content: center;
+    margin-left: 5px;
+    align-items: center;
+    font-size: 18px;
+
+}
+.Slider{
+    overflow: hidden;
+    flex-basis: 40%;
+}
+.Slider figure{
+    position: relative;
+    width: 500%;
+    margin: 0;
+    right: 0;
+    animation: cambio 15s infinite;
+
+}
+.Slider figure img{
+    width: 20%;
+    float: left;
+    border-radius: 3%; 
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -208,4 +254,18 @@ maneje todo automáticamente.*/
         opacity: 1;
         transform: translateX(0px);
     }
+}
+
+@keyframes cambio{
+    0% {margin-left: 0;}
+    20% {margin-left: 0;} /*Esto significa que un 20% de los 20s que pusimos de animacion va a estar la primera img*/
+    /*El 5% restante es el tiempo que va a durar la transicion de una img a otra.*/
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
 }
