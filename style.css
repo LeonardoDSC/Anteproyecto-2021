@@ -85,11 +85,22 @@ Pasan de ser 3 lineas horizontales a formar una X */
     font-family: 'Roboto Slab', serif;
 
 }
+
+.who{
+    flex-basis: 40%; 
+    position: static; 
+    margin-left: 45px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin: 0px;
+}
+/*
 .col-1 h3{
     font-size: 35px;
     color: black;
-
-}
+    text-transform: uppercase;
+}*/
 .col-1 p{
     justify-content: center;
     margin-left: 5px;
@@ -153,50 +164,6 @@ button:hover{
 }
 
 
-.row2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 100px 0;
-}
-.Products{
-    flex-basis: 40%; /*especifica el tamaño unicial del elemento flexible*/
-    position: static; /* para que no afecte a los elementos del nav*/
-    margin-left: 45px;
-    font-family: 'Roboto Slab', serif;
-
-}
-.Products h3{
-    font-size: 35px;
-    color: black;
-
-}
-.Products p{
-    justify-content: center;
-    margin-left: 5px;
-    align-items: center;
-    font-size: 18px;
-
-}
-.Slider{
-    overflow: hidden;
-    flex-basis: 40%;
-}
-.Slider figure{
-    position: relative;
-    width: 500%;
-    margin: 0;
-    right: 0;
-    animation: cambio 15s infinite;
-
-}
-.Slider figure img{
-    width: 20%;
-    float: left;
-    border-radius: 3%; 
-
-}
-
 @media screen and (max-width: 1024px) {
     .apartados{
         width: 60%;
@@ -205,6 +172,13 @@ button:hover{
 @media screen and (max-width: 768px) {
     head{
         overflow-x: hidden; /*se calcula implicitamente como auto*/
+    }
+    @media(max-width: 500px){
+        .who{
+            text-align: center;
+            font-size: 1.3rem;
+            display: flex;
+        }
     }
 
     .apartados{
@@ -241,6 +215,159 @@ button:hover{
     transform: translateX(0%)
 }
 
+.p-slider{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 50px auto;
+width: 95%;
+}
+
+.titulo-slider{
+    flex-basis: 40%; 
+    position: static; 
+    margin-left: 45px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.product-box{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    margin: 0px 20px;
+}
+
+.img-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.p-img a, 
+.p-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.p-img a img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+    animation: fade 0.6s;
+}
+
+
+.p-box-text{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.product-category{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.product-category span{
+    color: #acacac;
+    font-size: 0.9rem;
+    margin: 5px 0px;
+
+}
+.product-title{
+    color: #333333;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    transition: all ease 0.3s;
+}
+
+.product-title:hover{
+    color: #111111;
+    opacity: 0.7;
+    transition: all ease 0.3s;
+}
+.precio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.precio .p-price{
+    font-size: 1.3rem;
+    color: #333333;
+    font-weight: 700;
+}
+
+.slider-btns{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 30px auto 10px auto;
+    padding: 0px 10px;
+
+}
+
+.slider-btns button{
+    position: static !important;
+    transform: translate(0,0);
+    background-color: #f3f3f3;
+    width: 80px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+
+}
+
+.slider-btns button span{
+    font-weight: bold;
+    padding: 10px 15px 10px 10px;
+    position: relative;
+    text-decoration: none;
+
+}
+
+.slider-btns button span::before,
+.slider-btns button span::after{
+    border-right: 2px solid;
+    display: block;
+    height: 8px;
+    margin-top: -6px;
+    position: absolute;
+    transform: rotate(135deg);
+    right: 10px;
+    top: 50%;
+    width: 0;
+    content: '';
+}
+
+.slider-btns button span::after{
+    margin-top: -1px;
+    transform: rotate(45deg);
+
+}
+
+.slider-btns .glider-prev span{
+    transform: rotate(-180deg);
+
+}
 /*La regla arroba @keyframes permite a los autores controlar los pasos intermedios en una secuencia de animación CSS 
 mediante el establecimiento de keyframes (o puntos de trayectoria) a lo largo de la secuencia de animación que debe ser alcanzado por determinados puntos
 durante la animación. Esto le da un control más específico sobre los pasos intermedios de la secuencia de animación que se obtiene al dejar que el navegador
@@ -256,16 +383,45 @@ maneje todo automáticamente.*/
     }
 }
 
-@keyframes cambio{
-    0% {margin-left: 0;}
-    20% {margin-left: 0;} /*Esto significa que un 20% de los 20s que pusimos de animacion va a estar la primera img*/
-    /*El 5% restante es el tiempo que va a durar la transicion de una img a otra.*/
-    25% {margin-left: -100%;}
-    45% {margin-left: -100%;}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 
-    50% {margin-left: -200%;}
-    70% {margin-left: -200%;}
+@media(max-width: 500px){
+    .product-box{
+        margin: 0px 10px;
+    }
+    .p-slider{
+        width: 100%;
+    }
+    .titulo-slider{
+        text-align: center;
+        font-size: 1.3rem;
+        display: flex;
 
-    75% {margin-left: -300%;}
-    100% {margin-left: -300%;}
+    }
+    .p-img a,
+    .p-img{
+        height: 200px;
+
+    }
+    .precio .p-price{
+        font-size: 1.1rem;
+
+    }
+}
+
+@media(max-width:320px){
+    .p-img a,
+    .p-img{
+        height: 190px;
+    }
+    .slider-btns{
+        padding: 0px;
+    }
 }
